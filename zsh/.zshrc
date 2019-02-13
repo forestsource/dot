@@ -6,8 +6,6 @@
 ##############################################################
 # Basic
 ##############################################################
-# encoding
-export LANG=ja_JP.UTF-8
 # use color
 autoload -U colors
 colors
@@ -97,41 +95,52 @@ setopt pushd_ignore_dups
 ##############################################################
 # custom command
 ##############################################################
-# ls color
-export LSCOLORS=exfxcxdxbxegedabagacad
-export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+alias lcolor='for i in {0..255}; do     printf "\x1b[38;5;${i}mcolour${i}\x1b[0m "; done'
+
+##############################################################
+# alias
+##############################################################
 case ${OSTYPE} in
     darwin*)
-        export CLICOLOR=1
         alias ls='ls -G -F'
         ;;
     linux*)
         alias ls='ls -F --color=auto'
         ;;
 esac
-alias lcolor='for i in {0..255}; do     printf "\x1b[38;5;${i}mcolour${i}\x1b[0m "; done'
-
-##############################################################
-# alias
-##############################################################
-alias ls='ls -F --color=auto'
 alias ll='ls -l'
+alias la='ls -al'
 alias mkdir='mkdir -p'
 alias zconf='$EDITOR ~/.zshrc'
-alias rconf='source ~/.zshrc'
+alias rzconf='source ~/.zshrc'
+##############################################################
 # git
+# https://github.com/git/git
+##############################################################
 alias gs='git status --short --branch'
 alias gp='git pull origin'
 alias gl='git log --abbrev-commit --no-merges --date=iso'
 alias gd='git diff'
 
 ##############################################################
-# neovim
+# tmux
+# https://github.com/tmux/tmux
 ##############################################################
-export XDG_CONFIG_HOME="$HOME/.config"
+alias tconf='$EDITOR ~/.tmux.conf'
+
+##############################################################
+# neovim
+# https://github.com/neovim/neovim
+##############################################################
 alias vim='nvim'
 alias vi='nvim'
 alias nano='nvim'
 alias neovim='nvim'
 alias emacs='nvim'
 alias nvimconf='nvim $XDG_CONFIG_HOME/nvim/options.rc.vim'
+
+##############################################################
+# anyenv
+# https://github.com/anyenv/anyenv
+##############################################################
+eval "$(anyenv init -)"
