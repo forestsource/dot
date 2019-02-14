@@ -96,6 +96,9 @@ setopt pushd_ignore_dups
 # custom command
 ##############################################################
 alias lcolor='for i in {0..255}; do     printf "\x1b[38;5;${i}mcolour${i}\x1b[0m "; done'
+alias genpass='cat /dev/urandom |LC_CTYPE=C tr -dc "[:graph:]" | tr -d "1Il0O~^" | fold -w 12 | head -n 10'
+alias noproxy='source /usr/local/bin/noproxy.sh'
+alias proxy='source /usr/local/bin/proxy.sh'
 
 ##############################################################
 # alias
@@ -108,11 +111,13 @@ case ${OSTYPE} in
         alias ls='ls -F --color=auto'
         ;;
 esac
+alias ls='exa -F --color=auto'
 alias ll='ls -l'
 alias la='ls -al'
 alias mkdir='mkdir -p'
 alias zconf='$EDITOR ~/.zshrc'
 alias rzconf='source ~/.zshrc'
+alias dc='docker-compose'
 ##############################################################
 # git
 # https://github.com/git/git
