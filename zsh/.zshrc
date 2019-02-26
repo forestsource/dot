@@ -120,6 +120,7 @@ alias la='ls -al'
 alias mkdir='mkdir -p'
 alias zconf='$EDITOR ~/.zshrc'
 alias rzconf='source ~/.zshrc'
+alias aconf='$EDITOR $XDG_CONFIG_HOME/alacritty/alacritty.yml'
 alias dc='docker-compose'
 alias c='clear'
 
