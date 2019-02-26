@@ -114,11 +114,14 @@ font:
     #style: Italic
 
   normal:
-    family: Noto Sans Mono CJK JP
+    family: Cica
+    style: Regular
   bold:
-    family: Noto Sans Mono CJK JP
+    family: Cica
+    style: Bold
   italic:
-    family: Noto Sans Mono CJK JP
+    family: Cica
+    style: Italic
 
   # Point size
   size: 18.0

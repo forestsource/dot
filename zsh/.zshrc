@@ -118,6 +118,7 @@ alias mkdir='mkdir -p'
 alias zconf='$EDITOR ~/.zshrc'
 alias rzconf='source ~/.zshrc'
 alias dc='docker-compose'
+alias c='clear'
 ##############################################################
 # git
 # https://github.com/git/git
