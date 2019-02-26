@@ -15,6 +15,10 @@ setopt ignore_eof
 setopt print_eight_bit
 # emacs bind
 bindkey -e
+# startup tmux(default:attach latest session)
+if [[ ! -n $TMUX ]]; then
+  tmux a || tmux
+fi
 
 
 ##############################################################
