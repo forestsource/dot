@@ -138,8 +138,11 @@ alias hw='hw -anfi'
 ##############################################################
 alias gs='git status --short --branch'
 alias gp='git pull origin'
+alias gpu='git push'
 alias gl='git log --abbrev-commit --no-merges --date=iso'
 alias gd='git diff'
+alias gau='git add -u'
+alias gcm='git commit -m'
 
 ##############################################################
 # tmux
@@ -177,3 +180,4 @@ fbr() {
   branch=$(echo "$branches" | fzf +m) &&
   git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
+
