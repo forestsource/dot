@@ -56,7 +56,7 @@ add-zsh-hook precmd _update_vcs_info_msg
 ##############################################################
 # command line
 ##############################################################
-# ignore after '#' 
+# ignore after '#'
 setopt interactive_comments
 setopt NO_beep
 
@@ -65,13 +65,13 @@ setopt NO_beep
 ##############################################################
 #enable completion
 autoload -U compinit
-compinit -u 
+compinit -u
 # color
 zstyle ':completion:*' list-colors "${LS_COLORS}"
 zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
-# complete word-level 
+# complete word-level
 setopt complete_in_word
-# hilight 
+# hilight
 zstyle ':completion:*:default' menu select=1
 # use cache
 zstyle ':completion::complete:*' use-cache true
@@ -85,6 +85,8 @@ setopt correct
 zstyle ':completion:*' ignore-parents parent pwd ..
 # process name 
 zstyle ':completion:*:processed' command 'ps x -o pid,s,args'
+# complete slash
+setopt auto_param_slash
 
 ##############################################################
 ##### other settings
@@ -127,6 +129,8 @@ alias rzconf='source ~/.zshrc'
 alias aconf='$EDITOR $XDG_CONFIG_HOME/alacritty/alacritty.yml'
 alias dc='docker-compose'
 alias c='clear'
+alias grep='hw'
+alias hw='hw -anfi'
 
 ##############################################################
 # git
@@ -159,3 +163,17 @@ alias nvimconf='nvim $XDG_CONFIG_HOME/nvim/options.rc.vim'
 # https://github.com/anyenv/anyenv
 ##############################################################
 eval "$(anyenv init -)"
+
+##############################################################
+# fzf
+##############################################################
+# enable fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPTS='--height 60% --reverse --border --ansi'
+export FZF_CTRL_T_OPTS="--preview 'head -100 {}'"
+fbr() {
+  local branches branch
+  branches=$(git branch -vv) &&
+  branch=$(echo "$branches" | fzf +m) &&
+  git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+}
