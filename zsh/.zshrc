@@ -13,6 +13,9 @@ colors
 setopt ignore_eof
 # print jp file
 setopt print_eight_bit
+# emacs bind
+bindkey -e
+
 
 ##############################################################
 # history
@@ -119,6 +122,7 @@ alias zconf='$EDITOR ~/.zshrc'
 alias rzconf='source ~/.zshrc'
 alias dc='docker-compose'
 alias c='clear'
+
 ##############################################################
 # git
 # https://github.com/git/git
