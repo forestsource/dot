@@ -20,6 +20,8 @@ export PATH="$HOME/.anyenv/bin:$PATH"
 ## go lang
 ############################################################
 export GOPATH=~/.go
+export GOBIN=~/.go/bin
+export PATH="$GOBIN:$PATH"
 
 ############################################################
 ## rust
