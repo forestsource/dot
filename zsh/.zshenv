@@ -5,6 +5,8 @@ export EDITOR=nvim
 export LANG=ja_JP.UTF-8
 export LC_ALL=ja_JP.UTF-8
 export XDG_CONFIG_HOME="$HOME/.config"
+export HISTORYSIZE=3000
+export SAVEHIST=1000000
 
 ############################################################
 ## git
