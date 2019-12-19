@@ -24,9 +24,9 @@ fi
 ##############################################################
 # history
 ##############################################################
-HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=10000
+export HISTFILE=~/.zsh_history
+export HISTSIZE=1000
+export SAVEHIST=10000
 # ignore duplicate command
 setopt hist_ignore_all_dups
 setopt hist_reduce_blanks
@@ -129,8 +129,8 @@ alias rzconf='source ~/.zshrc'
 alias aconf='$EDITOR $XDG_CONFIG_HOME/alacritty/alacritty.yml'
 alias dc='docker-compose'
 alias c='clear'
-alias grep='hw'
-alias hw='hw -anfi'
+alias grep='ag'
+alias hw='ag -anfi'
 
 ##############################################################
 # git
